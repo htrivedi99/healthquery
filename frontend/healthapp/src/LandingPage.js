@@ -30,12 +30,18 @@ const styles = {
 }
 
 class LandingPage extends Component {
+    componentDidMount(){
+        document.body.style = 'background: #fff;';
+    }
+
     goTologin = () => {
         this.props.history.push("/login");
     }
+    
     goToSignup = () => {
         this.props.history.push("/register");
     }
+
     render(){
         return(
             <div>
