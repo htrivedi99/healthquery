@@ -1,0 +1,26 @@
+{
+  "name": "healthquery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "cd frontend && cd healthapp && npm start",
+    "backend": "cd backend && firebase serve",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htrivedi99/healthquery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/htrivedi99/healthquery/issues"
+  },
+  "homepage": "https://github.com/htrivedi99/healthquery#readme",
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  }
+}
