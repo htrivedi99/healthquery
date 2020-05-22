@@ -8,7 +8,6 @@
     "frontend": "cd frontend && cd healthapp && npm start",
     "backend": "cd backend && firebase serve",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
-
   },
   "repository": {
     "type": "git",
