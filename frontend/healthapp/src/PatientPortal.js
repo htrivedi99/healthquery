@@ -15,7 +15,7 @@ class PatientPortal extends Component {
                         <Col md={1} style={{display: "flex", alignItems: "center", marginRight: "60%",paddingLeft: "2%", fontFamily: "Helvetica Neue", color: "#36356b"}}>
                             <h3>HealthQuery</h3>
                         </Col>
-                        
+
                         <Col md={1} className="navlink">
                             <h4 className="linkText">Queries</h4>
                         </Col>
@@ -29,24 +29,24 @@ class PatientPortal extends Component {
             </div>
             <div>
                 <div className="chat">
-                
+
                 <Row style={{height: "10vh", width: "100%", textAlign:"center"}}>
                         <h1 className="chatLabel">Chat</h1>
                 </Row>
-                
+
                     <div className="chatbox">
                         <Row style={{width: "100%", height: "20vh", display: "flex"}}>
                             <Col style={{width: "20%"}}>
                                 <div style={{width: "80%", height: "15vh", backgroundColor:"black", borderRadius: "200px", marginLeft: "10%", marginTop: "10%"}}>
-                        
+
                                 </div>
                             </Col>
                             <Col style={{marginTop: "6%", width: "80%"}}>
-                                
+
                                 <h1 style={{fontSize: 16, display: "inline"}}>Sandra Adams </h1>
                                 <h1 style={{fontSize: 16, display: "inline", fontWeight: 300}}>
                                     - Hello there I would like to talk about something</h1>
-                                
+
                             </Col>
                         </Row>
                     </div>
@@ -54,15 +54,15 @@ class PatientPortal extends Component {
                         <Row style={{width: "100%", height: "20vh", display: "flex"}}>
                             <Col style={{width: "20%"}}>
                                 <div style={{width: "80%", height: "15vh", backgroundColor:"black", borderRadius: "200px", marginLeft: "10%", marginTop: "10%"}}>
-                        
+
                                 </div>
                             </Col>
                             <Col style={{marginTop: "6%", width: "80%"}}>
-                                
+
                                 <h1 style={{fontSize: 16, display: "inline"}}>Jane Smith </h1>
                                 <h1 style={{fontSize: 16, display: "inline", fontWeight: 300}}>
                                     - Hello there I would like to talk about something</h1>
-                                
+
                             </Col>
                         </Row>
                     </div>
@@ -73,9 +73,9 @@ class PatientPortal extends Component {
                             <h1 className="chatLabel">Queries</h1>
                     </Row>
                     <div className="chatbox">
-                        
+
                     </div>
-                    
+
                 </div>
                 <div className="doctors">
                 <Row style={{height: "10vh", width: "100%", textAlign:"center"}}>
@@ -87,9 +87,9 @@ class PatientPortal extends Component {
                             <div style={{backgroundColor:"white", width: "80%", height: "40vh", borderRadius: 8}}>
                                 <Row style={{alignItems: "center", justifyContent:"center", display: "flex"}}>
                                     <div style={{width: "48%", height: "15vh", backgroundColor:"black", borderRadius: "200px",marginTop: "10%"}}>
-                        
+
                                     </div>
-                                
+
                                 </Row>
                                 <Row style={{alignItems: "center", justifyContent:"center", textAlign: "center"}}>
                                     <h1 style={{fontSize: 35, fontFamily: "Helvetica Neue", fontWeight: 500, marginBottom: 0, paddingBottom: 0}}>Sandra</h1>
@@ -101,9 +101,9 @@ class PatientPortal extends Component {
                             <div style={{backgroundColor:"white", width: "80%", height: "40vh", borderRadius: 8}}>
                                 <Row style={{alignItems: "center", justifyContent:"center", display: "flex"}}>
                                     <div style={{width: "48%", height: "15vh", backgroundColor:"black", borderRadius: "200px",marginTop: "10%"}}>
-                        
+
                                     </div>
-                                
+
                                 </Row>
                                 <Row style={{alignItems: "center", justifyContent:"center", textAlign: "center"}}>
                                     <h1 style={{fontSize: 35, fontFamily: "Helvetica Neue", fontWeight: 500, marginBottom: 0, paddingBottom: 0}}>Jane</h1>
@@ -112,10 +112,10 @@ class PatientPortal extends Component {
                             </div>
                        </Col>
                     </Row>
-                    
+
                 </div>
-               
-               
+
+
             </div>
             </div>
 
@@ -165,20 +165,20 @@ class PatientPortal extends Component {
                         </Col>
                     </Row>
                 </div>
-               
-            </div>
-
-            
 
             </div>
 
 
 
-            
+            </div>
 
 
-            
-            
+
+
+
+
+
+
         </div>
         );
     }
