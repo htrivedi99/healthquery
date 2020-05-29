@@ -13,7 +13,7 @@ class Profile extends Component {
                 <div>
                     <Row style={{height: "200px", paddingBottom: 5, display: "flex"}}>
                         <Row className="headboard">
-                            <img className="profileImage" src="defaultProfile.png" />
+                            <img className="profileImage" src="./defaultProfile.png" />
                             <h1 style={{marginBottom: "5px", marginTop: "5px"}}>Patient Name</h1>
                             <hr className="lineBreak"></hr>
                         </Row>
@@ -38,14 +38,13 @@ class Profile extends Component {
                         <Row style={{width: "100%", textAlign:"Center"}}>
                             <h1 style={{color: "grey"}}>Patient Queries</h1>
                             <hr className="lineBreak" style={{marginBottom: "10px"}}></hr>
-                            <Row className="query" style={{display: "flex", marginLeft: "2%", marginRight: "2%", marginTop: "5px", marginBottom: "5px"}}>
-                                <Row style={{display: "flex", alignItems: "left"}}>
-                                    <body style={{display: "inline-block"}}><b>Note 1:</b> This is a patient query.</body>
-                                    <Row className="priorityColor" style={{display: "flex", alignItems: "right", backgroundColor: "red", width: "75px", height: "100px", float: "right"}}/>
-                                </Row>
+                            <Row className="query" style={{display: "flex", marginLeft: "2%", marginRight: "2%", marginTop: "10px", marginBottom: "10px"}}>
+                                <body style={{display: "flex", flexGrow: "100", marginTop: "5px"}}><b>Note 1:</b> This is a patient query.</body>
+                                <Row className="priorityColor" style={{display: "flex",flexGrow: "1", backgroundColor: "red", width: "75px", height: "100px", float: "right"}}/>
                             </Row>
-                            <Row className="query" style={{marginLeft: "2%", marginRight: "2%", marginTop: "5px", marginBottom: "5px"}}>
-                                <body style={{display: "inline-block"}}><b>Note 2:</b> This is a patient query.</body>
+                            <Row className="query" style={{display: "flex", marginLeft: "2%", marginRight: "2%", marginTop: "10px", marginBottom: "10px"}}>
+                                <body style={{display: "flex", flexGrow: "100", marginTop: "5px"}}><b>Note 2:</b> This is a patient query.</body>
+                                <Row className="priorityColor" style={{display: "flex",flexGrow: "1", backgroundColor: "red", width: "75px", height: "100px", float: "right"}}/>
                             </Row>
                             {/* Loop through items in the patient's queries in DB, add based on present items */}
                         </Row>
