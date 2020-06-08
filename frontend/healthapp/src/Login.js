@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, Button} from "react-bootstrap";
 import axios from "axios";
+import { db, myFirebase } from "./firestore.js";
 const API_BASE = "http://localhost:5000/healthquery-e1a26/us-central1/api";
 
 const styles = {
@@ -36,7 +37,8 @@ class Login extends Component {
         this.state = {
             email: "",
             password: "",
-            token: ""
+            token: "",
+            userId: ""
         }
     };
 
@@ -47,18 +49,36 @@ class Login extends Component {
         this.setState({ [e.target.id]: e.target.value });
     };
 
-    onSubmit = e => {
+    onSubmit = async(e) => {
         e.preventDefault();
         const userData = {
             email: this.state.email,
             password: this.state.password,
         };
-       axios.post(API_BASE + "/loginUser", userData)
-        .then(res => {
-            if(res.status === 200){
-                this.props.history.push("/patientPortal");
-            }
-        })
+        myFirebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+            .then(result => {
+                console.log("Result", result);
+                let user = result.user;
+                if(user){
+                    localStorage.setItem('userId', user.uid);
+                    this.props.history.push('/patientPortal');
+                }
+                
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        
+    //    await axios.post(API_BASE + "/loginUser", userData)
+    //     .then(res => {
+    //         if(res.status === 200){
+    //             this.setState({ token: res.data.token, userId: res.data.userId });
+    //         }
+    //     })
+    //     this.props.history.push({
+    //         pathname: '/patientPortal',
+    //         state: this.state 
+    //     });
     };
 
     render(){

@@ -2,12 +2,73 @@ import React, { Component } from "react";
 import { Container, Row, Col, Form, Button} from "react-bootstrap";
 import "./PatientPortal.css";
 import calendar_icon from "./calendar_icon.png";
+import Chatbox from "./Chatbox";
+import { db, myFirebase, auth } from "./firestore.js";
+import axios from "axios";
+
+const API_BASE = "http://localhost:5000/healthquery-e1a26/us-central1/api";
 
 class PatientPortal extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            userId: "",
+            doctorsList: []
+        };
+    }
     componentDidMount(){
         document.body.style = 'background: #fff;';
+        let uid = localStorage.getItem("userId");
+        this.getDoctorsList();
+        this.setState({userId: uid});
+        
+        // let userId = this.props.location.state.userId;
+        // this.setState({userId: userId});
+    }
+    goToChatroom = () => {
+        this.props.history.push("/Chatroom");
+    }
+    getDoctorsList = () => {
+        axios.get(API_BASE + "/getDoctors")
+            .then(res => {
+                this.setState({ doctorsList: res.data });
+            })
+    }
+    
+    getInfo = async(doctorId) => {
+        const data = {
+            uid1: localStorage.userId,
+            uid2: doctorId
+        };
+        await axios.post(API_BASE + "/checkChatHistory", data)
+            .then(res => {
+                console.log(res.data['newChatHistory']);
+                if(res.data['newChatHistory']){
+                    this.props.history.push({
+                    pathname: '/Chatroom',
+                    state: { docId: doctorId, newChatHistory: true }
+                });
+                }else{
+                    this.props.history.push({
+                        pathname: '/Chatroom',
+                        state: { docId: doctorId, newChatHistory: false }
+                    });
+                }
+               
+            })
+        // this.props.history.push({
+        //     pathname: '/Chatroom',
+        //     state: { docId: doctorId }
+        //  });
     }
     render(){
+        let doctors = null;
+        if(this.state.doctorsList.length > 0){
+            doctors = this.state.doctorsList.map(doctor => (
+                <Chatbox doctorId={doctor.uid} doctorName={doctor.name} getInfo={this.getInfo} />
+            ));
+        }
+        console.log(this.state);
         return(
             <div>
                 <div>
@@ -33,8 +94,11 @@ class PatientPortal extends Component {
                 <Row style={{height: "10vh", width: "100%", textAlign:"center"}}>
                         <h1 className="chatLabel">Chat</h1>
                 </Row>
+
+                    {/* <Chatbox doctorId="lol" getInfo={this.getInfo} /> */}
+                    { doctors }
                 
-                    <div className="chatbox">
+                    {/* <div className="chatbox" onClick={this.goToChatroom} style={{cursor: "pointer"}}>
                         <Row style={{width: "100%", height: "20vh", display: "flex"}}>
                             <Col style={{width: "20%"}}>
                                 <div style={{width: "80%", height: "15vh", backgroundColor:"black", borderRadius: "200px", marginLeft: "10%", marginTop: "10%"}}>
@@ -49,8 +113,8 @@ class PatientPortal extends Component {
                                 
                             </Col>
                         </Row>
-                    </div>
-                    <div className="chatbox">
+                    </div> */}
+                    {/* <div className="chatbox">
                         <Row style={{width: "100%", height: "20vh", display: "flex"}}>
                             <Col style={{width: "20%"}}>
                                 <div style={{width: "80%", height: "15vh", backgroundColor:"black", borderRadius: "200px", marginLeft: "10%", marginTop: "10%"}}>
@@ -65,7 +129,7 @@ class PatientPortal extends Component {
                                 
                             </Col>
                         </Row>
-                    </div>
+                    </div> */}
 
                 </div>
                 <div className="queries">
