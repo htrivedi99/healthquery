@@ -7,6 +7,7 @@ import LandingPage from './LandingPage';
 import PatientPortal from './PatientPortal';
 import VideoCall from './VideoCall';
 import Profile from "./profile";
+import Chatroom from "./Chatroom";
 
 import './App.css';
 
@@ -20,6 +21,7 @@ class App extends Component {
         <Route exact path="/PatientPortal" component={PatientPortal} />
         <Route exact path="/VideoCall" component={VideoCall} />
         <Route exact path="/profile" component={Profile}/>
+        <Route exact path="/Chatroom" component={Chatroom}/>
       </Router>
     );
   }
