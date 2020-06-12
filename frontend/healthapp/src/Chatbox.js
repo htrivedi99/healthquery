@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col, Form, Button} from "react-bootstrap";
 import "./PatientPortal.css";
 import axios from "axios";
+import defaultProfile from "./defaultProfile.png";
 
 const API_BASE = "http://localhost:5000/healthquery-e1a26/us-central1/api";
 
@@ -42,8 +43,8 @@ class Chatbox extends Component {
             <div className="chatbox" onClick={this.getId} style={{cursor: "pointer"}}>
                 <Row style={{width: "100%", height: "20vh", display: "flex"}}>
                     <Col style={{width: "20%"}}>
-                        <div style={{width: "80%", height: "15vh", backgroundColor:"black", borderRadius: "200px", marginLeft: "10%", marginTop: "10%"}}>
-                
+                        <div style={{width: "80%", height: "15vh", borderRadius: "200px", marginLeft: "10%", marginTop: "10%"}}>
+                            <img src={defaultProfile} style={{width: "60%", height: "60%"}}/>
                         </div>
                     </Col>
                     <Col style={{marginTop: "6%", width: "80%"}}>

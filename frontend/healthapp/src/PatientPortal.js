@@ -61,6 +61,11 @@ class PatientPortal extends Component {
         //     state: { docId: doctorId }
         //  });
     }
+
+    goToProfile = () => {
+        this.props.history.push("/profile");
+    }
+
     render(){
         let doctors = null;
         if(this.state.doctorsList.length > 0){
@@ -81,7 +86,7 @@ class PatientPortal extends Component {
                             <h4 className="linkText">Queries</h4>
                         </Col>
                         <Col md={1} className="navlink">
-                            <h4 className="linkText">Profile</h4>
+                            <h4 className="linkText" onClick={this.goToProfile}>Profile</h4>
                         </Col>
                         <Col md={1} className="navlink">
                             <h4 className="linkText">Logout</h4>
